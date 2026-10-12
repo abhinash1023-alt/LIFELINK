@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' https://www.gstatic.com/firebase/ https://www.gstatic.com/recaptcha/ https://www.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/; style-src 'self' https://www.gstatic.com/recaptcha/ https://www.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/ 'unsafe-inline'; img-src 'self' data: https://www.gstatic.com/recaptcha/ https://www.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/; font-src 'self' data:; connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://www.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/; frame-src https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#f7f8fc">
   <meta name="description" content="India-wide guide to official blood stock, licensed blood centres, donation camps, and donor registration through eRaktKosh.">
@@ -31,6 +31,7 @@
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#find-blood">Find blood</a>
         <a href="#donate">Donate</a>
+        <a href="matching.html">Request or volunteer</a>
         <a href="#safety">Safety</a>
       </nav>
       <a class="nav-action" href="https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/stockAvailability.cnt" target="_blank" rel="noopener noreferrer">Check blood stock <span aria-hidden="true">↗</span></a>
@@ -43,15 +44,15 @@
         <div class="hero-copy">
           <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> INDIA-WIDE · OFFICIAL SERVICE LINKS</p>
           <h1>Find blood support through <span>official services.</span></h1>
-          <p class="hero-lede">Check blood stock, find a licensed blood centre, or locate a donation camp using the Ministry of Health’s eRaktKosh services.</p>
-          <p class="honest-note">LifeLink is an independent guide. It does not collect patient or donor details, promise blood availability, or replace a hospital.</p>
+          <p class="hero-lede">Use official eRaktKosh services, or open the separate phone-verified volunteer matching page.</p>
+          <p class="honest-note">This guide page does not collect requests or donor profiles. The separate matching service uses phone sign-in and request-level contact consent; neither service replaces a hospital.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/stockAvailability.cnt" target="_blank" rel="noopener noreferrer">Search official blood stock <span aria-hidden="true">↗</span></a>
             <a class="button button-light" href="#find-blood">What to do next <span aria-hidden="true">↓</span></a>
           </div>
           <div class="trust-points" aria-label="How LifeLink works">
             <span><b aria-hidden="true">✓</b> No sign-up here</span>
-            <span><b aria-hidden="true">✓</b> No private donor list</span>
+            <span><b aria-hidden="true">✓</b> No public donor list</span>
             <span><b aria-hidden="true">✓</b> Links to official services</span>
           </div>
           <div class="urgent-strip">

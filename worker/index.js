@@ -30,6 +30,8 @@ function json(data, status) {
       "Referrer-Policy": "strict-origin-when-cross-origin",
       "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()",
       "Strict-Transport-Security": "max-age=31536000",
+      "Cross-Origin-Opener-Policy": "same-origin",
+      "Cross-Origin-Resource-Policy": "same-origin",
       "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
     }
   });
@@ -44,7 +46,7 @@ function ensureMethod(request, expected) {
 }
 
 function ensureDatabase(env) {
-  if (!env.DB || !env.DATA_ENCRYPTION_KEY) fail(503, "Matching is being prepared. No information was saved.");
+  if (!env.DB || !/^[0-9a-fA-F]{64}$/.test(env.DATA_ENCRYPTION_KEY || "")) fail(503, "Matching is being prepared. No information was saved.");
 }
 
 function firebaseConfig(env) {
@@ -59,8 +61,19 @@ function firebaseConfig(env) {
 }
 
 function bytesFromBase64Url(value) {
-  const padded = value.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((value.length + 3) % 4);
-  const raw = atob(padded);
+  if (typeof value !== "string" || !/^[A-Za-z0-9_-]*$/.test(value) || value.length % 4 === 1) throw new Error("Invalid base64url value");
+  const normalized = value.replace(/-/g, "+").replace(/_/g, "/");
+  const raw = atob(normalized + "=".repeat((4 - normalized.length % 4) % 4));
+  const bytes = new Uint8Array(raw.length);
+  for (let i = 0; i < raw.length; i += 1) bytes[i] = raw.charCodeAt(i);
+  return bytes;
+}
+
+function bytesFromBase64(value) {
+  if (typeof value !== "string" || !/^[A-Za-z0-9+/_-]*={0,2}$/.test(value)) throw new Error("Invalid base64 value");
+  const normalized = value.replace(/-/g, "+").replace(/_/g, "/").replace(/=/g, "");
+  if (normalized.length % 4 === 1) throw new Error("Invalid base64 value");
+  const raw = atob(normalized + "=".repeat((4 - normalized.length % 4) % 4));
   const bytes = new Uint8Array(raw.length);
   for (let i = 0; i < raw.length; i += 1) bytes[i] = raw.charCodeAt(i);
   return bytes;
@@ -186,7 +199,7 @@ function textField(value, min, max, label) {
 }
 
 function placeKey(value) {
-  return value.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
+  return value.normalize("NFKC").toLocaleLowerCase("en-IN").replace(/[^\p{L}\p{N}]+/gu, " ").replace(/\s+/g, " ").trim();
 }
 
 function validateLocation(stateValue, districtValue) {
@@ -194,11 +207,13 @@ function validateLocation(stateValue, districtValue) {
   const canonicalState = Array.from(STATES).find((name) => placeKey(name) === placeKey(state));
   if (!canonicalState) fail(400, "Choose an Indian state or union territory.");
   const district = textField(districtValue, 2, 60, "district");
+  const districtKey = placeKey(district);
+  if (!districtKey) fail(400, "Enter a district name using letters or numbers.");
   return {
     state: canonicalState,
     stateKey: placeKey(canonicalState),
     district,
-    districtKey: placeKey(district)
+    districtKey
   };
 }
 
@@ -231,9 +246,9 @@ async function encryptPhone(phone, env) {
 async function decryptPhone(ivText, cipherText, env) {
   const key = await encryptionKey(env);
   const plain = await crypto.subtle.decrypt(
-    { name: "AES-GCM", iv: bytesFromBase64Url(toBase64(bytesFromBase64Url(btoa(atob(ivText))))), tagLength: 128 },
+    { name: "AES-GCM", iv: bytesFromBase64(ivText), tagLength: 128 },
     key,
-    Uint8Array.from(atob(cipherText), (character) => character.charCodeAt(0))
+    bytesFromBase64(cipherText)
   );
   return new TextDecoder().decode(plain);
 }
@@ -264,9 +279,9 @@ async function saveProfile(request, env, identity) {
   const location = validateLocation(body.state, body.district);
   const now = Date.now();
   await env.DB.prepare(
-    "INSERT INTO donor_profiles (uid,blood_group,state,state_key,district,district_key,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?) " +
-    "ON CONFLICT(uid) DO UPDATE SET blood_group=excluded.blood_group,state=excluded.state,state_key=excluded.state_key,district=excluded.district,district_key=excluded.district_key,updated_at=excluded.updated_at"
-  ).bind(identity.uid, bloodGroup, location.state, location.stateKey, location.district, location.districtKey, now, now).run();
+    "INSERT INTO donor_profiles (uid,blood_group,state,state_key,district,district_key,consent_version,consented_at,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?) " +
+    "ON CONFLICT(uid) DO UPDATE SET blood_group=excluded.blood_group,state=excluded.state,state_key=excluded.state_key,district=excluded.district,district_key=excluded.district_key,consent_version=excluded.consent_version,consented_at=excluded.consented_at,updated_at=excluded.updated_at"
+  ).bind(identity.uid, bloodGroup, location.state, location.stateKey, location.district, location.districtKey, "lifelink-volunteer-v1", now, now, now).run();
   return json({ ok: true, message: "Volunteer profile saved. Your phone number is not listed publicly." });
 }
 
@@ -358,17 +373,16 @@ async function revealContact(request, env, identity, id) {
   if (!candidate) fail(404, "This request is no longer available.");
   if (candidate.owner_uid === identity.uid) fail(404, "This request is no longer available.");
 
-  const prior = await env.DB.prepare(
-    "SELECT request_id FROM disclosures WHERE donor_uid = ? AND request_id = ?"
-  ).bind(identity.uid, id).first();
-  if (!prior) {
-    const count = await env.DB.prepare(
-      "SELECT COUNT(*) AS count FROM disclosures WHERE donor_uid = ? AND created_at > ?"
-    ).bind(identity.uid, now - 24 * HOUR).first();
-    if (Number(count && count.count) >= 5) fail(429, "For privacy, you can contact up to five matching requests in 24 hours.");
-    await env.DB.prepare(
-      "INSERT INTO disclosures (donor_uid,request_id,created_at) VALUES (?,?,?)"
-    ).bind(identity.uid, id, now).run();
+  const recorded = await env.DB.prepare(
+    "INSERT INTO disclosures (donor_uid,request_id,created_at) " +
+    "SELECT ?, ?, ? WHERE (SELECT COUNT(*) FROM disclosures WHERE donor_uid = ? AND created_at > ?) < 5 " +
+    "ON CONFLICT(donor_uid,request_id) DO NOTHING"
+  ).bind(identity.uid, id, now, identity.uid, now - 24 * HOUR).run();
+  if (!recorded.meta || !recorded.meta.changes) {
+    const prior = await env.DB.prepare(
+      "SELECT request_id FROM disclosures WHERE donor_uid = ? AND request_id = ?"
+    ).bind(identity.uid, id).first();
+    if (!prior) fail(429, "For privacy, you can contact up to five matching requests in 24 hours.");
   }
 
   const phone = await decryptPhone(candidate.phone_iv, candidate.phone_cipher, env);
@@ -379,9 +393,9 @@ async function deleteAccount(request, env, identity) {
   ensureMethod(request, "DELETE");
   ensureDatabase(env);
   await env.DB.batch([
+    env.DB.prepare("DELETE FROM disclosures WHERE donor_uid = ? OR request_id IN (SELECT id FROM requests WHERE owner_uid = ?)").bind(identity.uid, identity.uid),
     env.DB.prepare("DELETE FROM requests WHERE owner_uid = ?").bind(identity.uid),
-    env.DB.prepare("DELETE FROM donor_profiles WHERE uid = ?").bind(identity.uid),
-    env.DB.prepare("DELETE FROM disclosures WHERE donor_uid = ?").bind(identity.uid)
+    env.DB.prepare("DELETE FROM donor_profiles WHERE uid = ?").bind(identity.uid)
   ]);
   return json({ ok: true });
 }
@@ -390,7 +404,7 @@ async function routeApi(request, env) {
   const url = new URL(request.url);
   if (request.method !== "GET") {
     const origin = request.headers.get("Origin");
-    if (origin && origin !== url.origin) fail(403, "Request origin is not allowed.");
+    if (origin !== url.origin) fail(403, "Request origin is not allowed.");
   }
   if (url.pathname === "/api/config") {
     ensureMethod(request, "GET");
@@ -399,6 +413,11 @@ async function routeApi(request, env) {
   if (url.pathname === "/api/health") {
     ensureMethod(request, "GET");
     ensureDatabase(env);
+    try {
+      await env.DB.prepare("SELECT 1 FROM donor_profiles LIMIT 1").first();
+    } catch {
+      fail(503, "Matching is being prepared. No information was saved.");
+    }
     return json({ status: "ok" });
   }
 

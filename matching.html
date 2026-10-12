@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="description" content="Phone-verified local blood volunteer matching in India, with request-level contact consent.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' https://www.gstatic.com/firebasejs/ https://www.gstatic.com/recaptcha/ https://www.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/; style-src 'self' https://www.gstatic.com/recaptcha/ https://www.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/ 'unsafe-inline'; img-src 'self' data: https://www.gstatic.com/recaptcha/ https://www.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/; font-src 'self' data:; connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://www.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/; frame-src https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/; form-action 'self'; upgrade-insecure-requests">
+  <link rel="stylesheet" href="style.css?v=matching-release-2026-10">
+  <script type="module" src="matching.js?v=2026-10-13"></script>
+  <title>Volunteer blood matching | LifeLink India</title>
+</head>
+<body class="matching-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="LifeLink India home">
+        <span class="brand-mark" aria-hidden="true">+</span>
+        <span>Life<span class="brand-accent">Link</span><small>INDIA</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Official services</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+      <a class="nav-action" href="tel:112">Emergency 112 <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="matching-hero">
+      <div class="container matching-hero-inner">
+        <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> INDIA · PHONE-VERIFIED VOLUNTEERS</p>
+        <h1>Reach nearby volunteers <span>with consent.</span></h1>
+        <p class="matching-lede">Post a time-limited blood request or volunteer in your district. A requester’s verified phone is shown only to a signed-in volunteer with the same recorded blood group and district, after the volunteer chooses to reveal it.</p>
+        <div class="matching-alert" role="note">
+          <strong>Important:</strong> This is a contact directory, not a medical matching decision. A shared blood group does not prove compatibility or donor eligibility. The treating hospital or licensed blood centre must assess every donor and confirm stock. For emergencies, contact the hospital or call <a href="tel:112">112</a>.
+        </div>
+        <div class="matching-steps" id="how-it-works">
+          <article><span>1</span><div><b>Sign in by SMS</b><p>Google Firebase sends a one-time code; standard SMS charges may apply.</p></div></article>
+          <article><span>2</span><div><b>Choose a role</b><p>Save a volunteer profile, post a request, or do both.</p></div></article>
+          <article><span>3</span><div><b>Contact through the hospital</b><p>Requester numbers are shared only with consent and matches expire quickly.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white matching-account">
+      <div class="container narrow-container">
+        <div id="service-status" class="form-status status-info" role="status" aria-live="polite">Checking secure sign-in and matching service…</div>
+
+        <section id="sign-in-panel" class="form-panel" aria-labelledby="signin-heading">
+          <div class="section-heading compact-heading">
+            <div><p class="section-kicker">SECURE SIGN-IN</p><h2 id="signin-heading">Verify your phone number.</h2></div>
+            <p>Phone verification confirms access to a number. It does not verify a person’s identity, donor eligibility, or a blood request.</p>
+          </div>
+          <form id="phone-form" class="stack-form">
+            <label for="phone-number">Mobile number in international format</label>
+            <input id="phone-number" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+919876543210" pattern="\+[1-9][0-9]{7,14}" maxlength="16" required>
+            <label class="check-row">
+              <input id="firebase-consent" type="checkbox" required>
+              <span>I agree to Firebase phone sign-in. Google processes phone numbers for authentication and abuse prevention. SMS or carrier charges may apply. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Firebase privacy details</a>.</span>
+            </label>
+            <div id="recaptcha-container" class="recaptcha-box" aria-label="reCAPTCHA verification"></div>
+            <button id="send-code" class="button button-primary" type="submit" disabled>Send verification code</button>
+            <p id="phone-status" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+          <form id="code-form" class="stack-form" hidden>
+            <label for="sms-code">Six-digit SMS code</label>
+            <input id="sms-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required>
+            <div class="inline-actions">
+              <button class="button button-primary" type="submit">Verify and continue</button>
+              <button id="change-number" class="button button-light" type="button">Change number</button>
+            </div>
+            <p id="code-status" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section id="matching-app" hidden>
+          <div class="signed-in-bar">
+            <p>Signed in with a verified phone number. Your donor phone is never shown on match cards.</p>
+            <button id="sign-out" class="button button-light" type="button">Sign out</button>
+          </div>
+
+          <div class="matching-grid">
+            <section class="form-panel" aria-labelledby="profile-heading">
+              <div class="section-heading compact-heading">
+                <div><p class="section-kicker">VOLUNTEER</p><h2 id="profile-heading">Offer to help.</h2></div>
+              </div>
+              <p class="form-intro">Your blood group and district are used to find same-group requests. Your phone number is not shared with requesters. A hospital checks eligibility and compatibility.</p>
+              <form id="profile-form" class="stack-form">
+                <label for="profile-group">Your recorded blood group</label>
+                <select id="profile-group" name="bloodGroup" required>
+                  <option value="">Choose blood group</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+                </select>
+                <label for="profile-state">State or union territory</label>
+                <select id="profile-state" name="state" required><option value="">Choose state or union territory</option><option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option><option>Andaman and Nicobar Islands</option><option>Chandigarh</option><option>Dadra and Nagar Haveli and Daman and Diu</option><option>Delhi</option><option>Jammu and Kashmir</option><option>Ladakh</option><option>Lakshadweep</option><option>Puducherry</option></select>
+                <label for="profile-district">District</label>
+                <input id="profile-district" name="district" type="text" minlength="2" maxlength="60" autocomplete="address-level2" required>
+                <label class="check-row">
+                  <input name="volunteerConsent" type="checkbox" required>
+                  <span>I volunteer to be shown requests with this recorded blood group and district. I understand a hospital or licensed blood centre decides whether I can donate.</span>
+                </label>
+                <button class="button button-primary" type="submit">Save volunteer profile</button>
+                <p id="profile-status" class="form-status" role="status" aria-live="polite"></p>
+              </form>
+              <div class="subsection">
+                <div class="subsection-heading"><h3>Requests in your district</h3><button id="refresh-matches" class="text-button" type="button">Refresh</button></div>
+                <div id="matches-list" class="card-list" aria-live="polite"></div>
+              </div>
+            </section>
+
+            <section class="form-panel" aria-labelledby="request-heading">
+              <div class="section-heading compact-heading">
+                <div><p class="section-kicker">REQUEST BLOOD</p><h2 id="request-heading">Post a short-lived request.</h2></div>
+              </div>
+              <p class="form-intro">Use the requirement provided by the treating hospital. Do not enter a patient’s name, diagnosis, Aadhaar number, or medical documents.</p>
+              <form id="request-form" class="stack-form">
+                <label for="request-group">Blood group requested by the hospital</label>
+                <select id="request-group" name="bloodGroup" required>
+                  <option value="">Choose blood group</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+                </select>
+                <label for="request-component">Component</label>
+                <select id="request-component" name="component" required>
+                  <option value="">Choose component</option><option>Whole blood</option><option>Red cells</option><option>Platelets</option><option>Plasma</option>
+                </select>
+                <label for="request-units">Number of units</label>
+                <input id="request-units" name="units" type="number" min="1" max="20" step="1" value="1" required>
+                <label for="request-state">State or union territory</label>
+                <select id="request-state" name="state" required><option value="">Choose state or union territory</option><option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option><option>Andaman and Nicobar Islands</option><option>Chandigarh</option><option>Dadra and Nagar Haveli and Daman and Diu</option><option>Delhi</option><option>Jammu and Kashmir</option><option>Ladakh</option><option>Lakshadweep</option><option>Puducherry</option></select>
+                <label for="request-district">District</label>
+                <input id="request-district" name="district" type="text" minlength="2" maxlength="60" autocomplete="address-level2" required>
+                <label for="request-hospital">Hospital or licensed blood-centre name</label>
+                <input id="request-hospital" name="hospital" type="text" minlength="2" maxlength="100" autocomplete="organization" required>
+                <label for="request-needed-by">Needed by (your local time; within 72 hours)</label>
+                <input id="request-needed-by" name="neededBy" type="datetime-local" required>
+                <label class="check-row consent-request">
+                  <input name="sharePhone" type="checkbox" required>
+                  <span>I consent to sharing the verified phone number on this account with signed-in volunteers whose recorded blood group and district match this request. I am the requester or have permission to coordinate for them. I understand a recipient may keep or share the number after seeing it.</span>
+                </label>
+                <button class="button button-primary" type="submit">Post request</button>
+                <p id="request-status" class="form-status" role="status" aria-live="polite"></p>
+              </form>
+              <div class="subsection">
+                <h3>Your active requests</h3>
+                <div id="my-requests-list" class="card-list" aria-live="polite"></div>
+              </div>
+            </section>
+          </div>
+
+          <section class="data-actions" aria-labelledby="data-heading">
+            <div><p class="section-kicker">YOUR DATA</p><h2 id="data-heading">Remove your LifeLink data</h2><p>Delete all your active requests, volunteer profile, and contact-release history, then try to remove your Firebase sign-in account.</p></div>
+            <button id="delete-account" class="button button-danger" type="button">Delete data and account</button>
+            <p id="account-status" class="form-status" role="status" aria-live="polite"></p>
+          </section>
+          <p id="app-status" class="form-status app-status" role="status" aria-live="polite"></p>
+        </section>
+      </div>
+    </section>
+
+    <section class="section section-tint">
+      <div class="container narrow-container">
+        <h2>Use official services too.</h2>
+        <p>LifeLink cannot confirm stock or replace the treating team. Check official eRaktKosh listings and call the hospital or licensed blood centre before travelling.</p>
+        <a class="button button-light" href="https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/stockAvailability.cnt" target="_blank" rel="noopener noreferrer">Search official blood stock <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand brand-footer" href="index.html"><span class="brand-mark" aria-hidden="true">+</span><span>Life<span class="brand-accent">Link</span><small>INDIA</small></span></a>
+      <div class="footer-copy"><p>Independent community matching. Not a hospital, blood bank, or Government of India service.</p><p><a href="privacy.html">Privacy and data use</a> · <a href="index.html">Official-service guide</a></p><p>Managed by <strong>Mudda Abinash</strong> · <a href="mailto:abhinash1023@gmail.com">abhinash1023@gmail.com</a></p></div>
+      <p class="footer-note">In an emergency, contact the treating hospital or call <a href="tel:112">112</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>
