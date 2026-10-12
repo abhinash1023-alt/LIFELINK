@@ -325,9 +325,11 @@ $("#delete-account").addEventListener("click", async () => {
       await authSdk.deleteUser(currentUser);
       currentUser = null;
       setStatus("#account-status", "Your LifeLink data and Firebase sign-in account were deleted.", "success");
+      setStatus("#service-status", "Your LifeLink data and Firebase sign-in account were deleted.", "success");
     } catch {
       await authSdk.signOut(auth);
       setStatus("#account-status", "Your LifeLink data was deleted. Firebase could not remove the sign-in account because it may require a fresh SMS verification. Sign in again and repeat this action, or email abhinash1023@gmail.com.", "error");
+      setStatus("#service-status", "Your LifeLink data is deleted. Sign in again with a fresh SMS verification to retry removing the Firebase account, or email abhinash1023@gmail.com.", "error");
     }
   } catch (error) {
     setStatus("#account-status", error.message, "error");
