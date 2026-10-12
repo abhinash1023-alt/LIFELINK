@@ -1,95 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-IN">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>LifeLink | Blood support, made clearer</title>
-
-    <meta
-        name="description"
-        content="LifeLink is a blood support prototype with local demo requests, donor matching, and a roadmap for more accessible coordination."
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    />
-
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="description" content="Find official blood stock, licensed blood centres, donation camps, and donor registration across India.">
+  <meta property="og:title" content="LifeLink India | Blood support through official services">
+  <meta property="og:description" content="A clear guide to official blood availability, blood centres, donation camps, and donor registration in India.">
+  <title>LifeLink India | Official blood support links</title>
+  <link rel="preconnect" href="https://eraktkosh.mohfw.gov.in">
+  <link rel="stylesheet" href="style.css?v=india-2026-10-13">
+  <script src="app.js" defer></script>
 </head>
-
 <body>
-    <header class="site-header">
-        <div class="container nav-container">
-            <a href="#home" class="brand">
-                <span class="brand-icon">+</span>
-                <span>Life<span>Link</span></span>
-            </a>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="LifeLink India home">
+        <span class="brand-mark" aria-hidden="true">+</span>
+        <span>Life<span class="brand-accent">Link</span><small>INDIA</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#find-blood">Find blood</a>
+        <a href="#donate">Donate</a>
+        <a href="#safety">Safety</a>
+      </nav>
+      <a class="nav-action" href="https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/stockAvailability.cnt" target="_blank" rel="noopener noreferrer">Check blood stock <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
 
-            <nav class="desktop-nav">
-                <a href="#how-it-works">How It Works</a>
-                <a href="#smart-features">Smart Features</a>
-                <a href="#donor-section">Become a Donor</a>
-                <a href="#future">Future</a>
-                <a href="#about">About</a>
-            </nav>
-
-            <a href="#blood-request" class="nav-button">
-                Need Blood Now
-            </a>
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> INDIA-WIDE · OFFICIAL SERVICE LINKS</p>
+          <h1>Find blood support through <span>official services.</span></h1>
+          <p class="hero-lede">Check blood stock, find a licensed blood centre, or locate a donation camp using the Ministry of Health’s eRaktKosh services.</p>
+          <p class="honest-note">LifeLink is an independent guide. It does not collect patient or donor details, promise blood availability, or replace a hospital.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/stockAvailability.cnt" target="_blank" rel="noopener noreferrer">Search official blood stock <span aria-hidden="true">↗</span></a>
+            <a class="button button-light" href="#find-blood">What to do next <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="trust-points" aria-label="How LifeLink works">
+            <span><b aria-hidden="true">✓</b> No sign-up here</span>
+            <span><b aria-hidden="true">✓</b> No private donor list</span>
+            <span><b aria-hidden="true">✓</b> Links to official services</span>
+          </div>
+          <div class="urgent-strip">
+            <span class="urgent-icon" aria-hidden="true">!</span>
+            <p><strong>Immediate emergency?</strong> Contact the treating hospital. For urgent emergency assistance in India, call <a href="tel:112">112</a>.</p>
+          </div>
         </div>
-    </header>
 
-    <main>
-        <section class="hero-section" id="home">
-            <div class="container hero-grid">
-                <div class="hero-content">
-                    <div class="eyebrow">
-                        <span class="status-dot"></span>
-                        Community-powered blood support
-                    </div>
-
-                    <h1>
-                        Find blood.
-                        <span>Save a life.</span>
-                    </h1>
-
-                    <p class="hero-description">
-                        LifeLink is a browser-based demo for creating blood requests and showing
-                        donor matches by blood group and availability. It does not
-                        contact donors, hospitals, or blood banks.
-                    </p>
-
-                    <div class="hero-actions">
-                        <a href="#blood-request" class="primary-button">
-                            Need Blood Now
-                            <span>→</span>
-                        </a>
-
-                        <a href="#donor-section" class="secondary-button">
-                            Become a Donor
-                        </a>
-                    </div>
-
-                    <div class="hero-features">
-                        <span>Blood group matching</span>
-                        <span>Emergency request ID</span>
-                        <span>Browser-based demo</span>
-                    </div>
-
-                    <div class="founder-note">
-                        Managed by
-                        <strong>Mudda Abinash</strong>
-                    </div>
-                </div>
-
-                <div class="hero-visual">
-                    <div class="hero-art-shell">
-                        <svg class="hero-art" viewBox="0 0 640 520" role="img" aria-labelledby="heroArtTitle heroArtDesc">
+        <div class="hero-visual">
+          <div class="art-backdrop" aria-hidden="true"></div>
+          <div class="art-badge art-badge-stock"><span class="badge-icon">✓</span><span><strong>Official stock search</strong><small>eRaktKosh · India</small></span></div>
+          <svg class="hero-art" viewBox="0 0 640 520" role="img" aria-labelledby="heroArtTitle heroArtDesc">
                             <title id="heroArtTitle">LifeLink blood support illustration</title>
                             <desc id="heroArtDesc">A dimensional blood bag, protective medical shield, and floating blood cells illustrate coordinated community support.</desc>
                             <defs>
@@ -168,577 +134,160 @@
                                 <path d="M19 9v20M9 19h20" stroke="#16835b" stroke-width="5" stroke-linecap="round"/>
                             </g>
                         </svg>
-                    </div>
-                    <div class="hero-float-card hero-float-card--match">
-                        <span class="hero-float-icon">✓</span>
-                        <span><strong>Demo match</strong><small>Blood group + availability</small></span>
-                    </div>
-                    <div class="hero-float-card hero-float-card--privacy">
-                        <span class="hero-float-icon hero-float-icon--soft">⌂</span>
-                        <span><strong>Private by design</strong><small>Saved in this browser</small></span>
-                    </div>
-                    <p class="hero-art-caption">A clearer path from request to local demo match.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="trust-section">
-            <div class="container trust-grid">
-                <div>
-                    <strong>Designed for emergencies</strong>
-                    <span>Simple actions when every second matters.</span>
-                </div>
-
-                <div>
-                    <strong>Built for coordination</strong>
-                    <span>Patients, donors, hospitals, and blood banks.</span>
-                </div>
-
-                <div>
-                    <strong>Privacy-first concept</strong>
-                    <span>Real medical data requires consent and verification.</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="how-it-works">
-            <div class="container">
-                <div class="section-heading">
-                    <div>
-                        <p class="section-label">HOW LIFELINK WORKS</p>
-                        <h2>A faster way to ask for help.</h2>
-                    </div>
-
-                    <p>
-                        The platform is designed to reduce confusion during
-                        emergencies by bringing the most important actions
-                        into one place.
-                    </p>
-                </div>
-
-                <div class="steps-grid">
-                    <article class="step-card">
-                        <span class="step-number">01</span>
-                        <div class="step-icon">!</div>
-                        <h3>Create a blood request</h3>
-                        <p>
-                            Enter the required blood group, number of units,
-                            hospital, and emergency contact details.
-                        </p>
-                    </article>
-
-                    <article class="step-card">
-                        <span class="step-number">02</span>
-                        <div class="step-icon">⌕</div>
-                        <h3>Find suitable donors</h3>
-                        <p>
-                            This demo matches exact blood group and donor availability.
-                            It does not use location or response priority.
-                        </p>
-                    </article>
-
-                    <article class="step-card">
-                        <span class="step-number">03</span>
-                        <div class="step-icon">♥</div>
-                        <h3>Coordinate support</h3>
-                        <p>
-                            This prototype does not send notifications or collect donor
-                            responses. Contact a hospital or licensed blood bank
-                            to confirm real availability.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section soft-section" id="smart-features">
-            <div class="container">
-                <div class="section-heading">
-                    <div>
-                        <p class="section-label">IN THIS DEMO</p>
-                        <h2>A simple starting point.</h2>
-                    </div>
-                    <p>
-                        LifeLink keeps the current experience clear: a local request,
-                        a basic blood-group match, and an activity view you can understand.
-                    </p>
-                </div>
-                <div class="feature-grid">
-                    <article class="feature-card">
-                        <div class="feature-icon">⌁</div>
-                        <h3>Blood group matching</h3>
-                        <p>The demo shows registered donors with the same blood group who are marked available now or today.</p>
-                    </article>
-                    <article class="feature-card">
-                        <div class="feature-icon">＋</div>
-                        <h3>Request ID</h3>
-                        <p>Each local demo request receives an ID so the requester can identify that entry in the browser activity list.</p>
-                    </article>
-                    <article class="feature-card">
-                        <div class="feature-icon">▤</div>
-                        <h3>Activity at a glance</h3>
-                        <p>See request and donor counts, urgency totals, and recent activity saved on this device.</p>
-                    </article>
-                    <article class="feature-card">
-                        <div class="feature-icon">⌂</div>
-                        <h3>Browser-only data</h3>
-                        <p>Demo details stay in local browser storage. The page does not contact donors or medical providers.</p>
-                    </article>
-                </div>
-                <a class="roadmap-link" href="#future">Explore the future roadmap <span aria-hidden="true">↓</span></a>
-            </div>
-        </section>
-
-        <section class="section future-section" id="future">
-            <div class="container">
-                <div class="section-heading">
-                    <div>
-                        <p class="section-label">A PEOPLE-FIRST ROADMAP</p>
-                        <h2>Useful next steps, built with care.</h2>
-                    </div>
-                    <p>
-                        These are future ideas, not live services. Each would need
-                        trusted partners, consent, privacy safeguards, and medical review.
-                    </p>
-                </div>
-                <div class="roadmap-grid">
-                    <article class="roadmap-card">
-                        <div class="roadmap-art roadmap-art--stock">
-                            <svg viewBox="0 0 200 150" role="img" aria-label="Dimensional blood storage bags">
-                                <defs>
-                                    <linearGradient id="stockPack" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff958b"/><stop offset=".55" stop-color="#ec4b59"/><stop offset="1" stop-color="#ba2b45"/></linearGradient>
-                                    <linearGradient id="stockPack2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#cbdcff"/><stop offset="1" stop-color="#6b86d8"/></linearGradient>
-                                </defs>
-                                <ellipse cx="102" cy="131" rx="70" ry="9" fill="#354665" opacity=".12"/>
-                                <g transform="translate(30 19) rotate(-8 42 55)">
-                                    <path d="M30 4h30v13H30z" fill="#dce5f2"/>
-                                    <path d="M16 18h58a9 9 0 0 1 9 9v75a10 10 0 0 1-10 10H17a10 10 0 0 1-10-10V27a9 9 0 0 1 9-9Z" fill="url(#stockPack)" stroke="#fff" stroke-width="4"/>
-                                    <path d="M9 65c16-8 27 7 40 0s21 6 34-1v38a10 10 0 0 1-10 10H17a10 10 0 0 1-10-10Z" fill="#fca9a0" opacity=".8"/>
-                                    <path d="M43 40v25M31 52h24" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
-                                    <path d="M17 29h12v22H17z" fill="#fff" opacity=".22"/>
-                                </g>
-                                <g transform="translate(100 34) rotate(9 38 45)">
-                                    <path d="M29 2h27v12H29z" fill="#dce5f2"/>
-                                    <path d="M13 15h60a9 9 0 0 1 9 9v66a10 10 0 0 1-10 10H14A10 10 0 0 1 4 90V24a9 9 0 0 1 9-9Z" fill="url(#stockPack2)" stroke="#fff" stroke-width="4"/>
-                                    <path d="M8 61c14-7 26 6 39 0 11-6 23 5 36-2v31a10 10 0 0 1-10 10H14A10 10 0 0 1 4 90V61Z" fill="#8ea8ed"/>
-                                    <circle cx="43" cy="42" r="13" fill="#fff" opacity=".95"/>
-                                    <path d="M43 34v16M35 42h16" stroke="#5f7ed6" stroke-width="4" stroke-linecap="round"/>
-                                </g>
-                            </svg>
-                        </div>
-                        <span class="roadmap-pill">Planned with blood-bank partners</span>
-                        <h3>Current stock, clearly dated</h3>
-                        <p>Show partner-confirmed availability with a “last updated” time, then help hospitals coordinate stock before usable units expire.</p>
-                    </article>
-                    <article class="roadmap-card">
-                        <div class="roadmap-art roadmap-art--access">
-                            <svg viewBox="0 0 200 150" role="img" aria-label="Dimensional phone with language and access controls">
-                                <defs>
-                                    <linearGradient id="phoneBody" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#243956"/><stop offset="1" stop-color="#0d1d34"/></linearGradient>
-                                    <linearGradient id="phoneScreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#eaf1fb"/></linearGradient>
-                                </defs>
-                                <ellipse cx="103" cy="132" rx="54" ry="8" fill="#354665" opacity=".14"/>
-                                <g transform="translate(69 9) rotate(8 34 63)">
-                                    <rect x="1" y="0" width="70" height="125" rx="18" fill="#a8bbd8" opacity=".65"/>
-                                    <rect x="0" y="0" width="66" height="121" rx="17" fill="url(#phoneBody)" stroke="#fff" stroke-width="4"/>
-                                    <rect x="6" y="13" width="54" height="93" rx="10" fill="url(#phoneScreen)"/>
-                                    <rect x="22" y="5" width="21" height="3" rx="2" fill="#9fb1c8"/>
-                                    <circle cx="33" cy="113" r="4" fill="#b7c7dc"/>
-                                    <circle cx="33" cy="39" r="18" fill="#fde4e0"/>
-                                    <text x="33" y="45" text-anchor="middle" fill="#dc4a57" font-size="18" font-family="Arial,sans-serif" font-weight="700">Aa</text>
-                                    <rect x="15" y="67" width="37" height="6" rx="3" fill="#b4c3d8"/>
-                                    <rect x="15" y="80" width="28" height="6" rx="3" fill="#d0d9e6"/>
-                                </g>
-                                <g transform="translate(124 37)">
-                                    <rect x="0" y="0" width="58" height="34" rx="14" fill="#fff" filter="drop-shadow(0 8px 8px #92a4bd55)"/>
-                                    <path d="M14 17h30M29 8v18" stroke="#36a995" stroke-width="4" stroke-linecap="round"/>
-                                </g>
-                                <circle cx="47" cy="47" r="16" fill="#fff" filter="drop-shadow(0 8px 8px #92a4bd55)"/>
-                                <path d="M41 47h12M47 41v12" stroke="#ed4b59" stroke-width="3.5" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <span class="roadmap-pill">Designed for low connectivity</span>
-                        <h3>Language and low-network access</h3>
-                        <p>Offer simple local-language guidance and low-data or SMS updates, with a clear opt-in before any message is sent.</p>
-                    </article>
-                    <article class="roadmap-card">
-                        <div class="roadmap-art roadmap-art--care">
-                            <svg viewBox="0 0 200 150" role="img" aria-label="Dimensional shield with heart and checkmark">
-                                <defs>
-                                    <linearGradient id="careShield" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#59d8bd"/><stop offset="1" stop-color="#16848b"/></linearGradient>
-                                    <linearGradient id="careHeart" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8279"/><stop offset="1" stop-color="#dc3b51"/></linearGradient>
-                                </defs>
-                                <ellipse cx="101" cy="133" rx="46" ry="8" fill="#354665" opacity=".14"/>
-                                <circle cx="101" cy="73" r="56" fill="#fff" opacity=".6"/>
-                                <path d="M100 22 143 39v36c0 32-18 52-43 65-25-13-43-33-43-65V39l43-17Z" fill="#095c69" opacity=".18" transform="translate(4 8)"/>
-                                <path d="M100 16 143 33v36c0 32-18 52-43 65-25-13-43-33-43-65V33l43-17Z" fill="url(#careShield)" stroke="#fff" stroke-width="5"/>
-                                <path d="M100 89c-4-4-25-18-25-34 0-13 16-19 25-6 9-13 25-7 25 6 0 16-21 30-25 34Z" fill="url(#careHeart)"/>
-                                <path d="m82 103 12 12 25-28" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="153" cy="34" r="11" fill="#fff"/>
-                                <path d="m149 34 3 3 6-7" fill="none" stroke="#2a9c88" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <span class="roadmap-pill">Reviewed by qualified professionals</span>
-                        <h3>Donor care, not guesswork</h3>
-                        <p>Offer optional donation reminders and clear referral guidance. Eligibility decisions stay with licensed staff; the app should never diagnose or approve donation.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="blood-request">
-            <div class="container form-layout">
-                <div class="form-introduction">
-                    <p class="section-label">EMERGENCY BLOOD REQUEST</p>
-
-                    <h2>Request blood in a few simple steps.</h2>
-
-                    <p>
-                        Use this demo form to create an emergency request.
-                        The request will be saved inside your browser and
-                        assigned a unique request ID.
-                    </p>
-
-                    <div class="info-box">
-                        <strong>Important:</strong>
-                        This is a demonstration platform. Real blood
-                        availability must be confirmed by a hospital or
-                        licensed blood bank.
-                    </div>
-
-                    <div class="request-example">
-                        <span class="example-icon">+</span>
-                        <div>
-                            <strong>Example request</strong>
-                            <p>
-                                O+ blood required for an emergency patient.
-                                Two units needed at a verified hospital.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="main-form" id="bloodRequestForm">
-                    <div class="form-header">
-                        <div>
-                            <span class="form-label">NEW REQUEST</span>
-                            <h3>Need Blood Now</h3>
-                        </div>
-
-                        <span class="form-badge">Demo mode</span>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="patientName">Patient name</label>
-                            <input
-                                type="text"
-                                id="patientName"
-                                placeholder="Enter patient name"
-                                required
-                            />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="bloodGroup">Blood group</label>
-                            <select id="bloodGroup" required>
-                                <option value="">Select group</option>
-                                <option value="A+">A+</option>
-                                <option value="A-">A-</option>
-                                <option value="B+">B+</option>
-                                <option value="B-">B-</option>
-                                <option value="AB+">AB+</option>
-                                <option value="AB-">AB-</option>
-                                <option value="O+">O+</option>
-                                <option value="O-">O-</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="units">Required units</label>
-                            <input
-                                type="number"
-                                id="units"
-                                min="1"
-                                max="20"
-                                placeholder="Example: 2"
-                                required
-                            />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="urgency">Urgency level</label>
-                            <select id="urgency" required>
-                                <option value="">Select urgency</option>
-                                <option value="Critical">Critical</option>
-                                <option value="High">High</option>
-                                <option value="Normal">Normal</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="hospitalName">Hospital name</label>
-                        <input
-                            type="text"
-                            id="hospitalName"
-                            placeholder="Enter hospital name"
-                            required
-                        />
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <input
-                                type="text"
-                                id="city"
-                                placeholder="Enter city"
-                                required
-                            />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contactNumber">Emergency contact</label>
-                            <input
-                                type="tel"
-                                id="contactNumber"
-                                placeholder="Enter phone number"
-                                required
-                            />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="requestNote">Additional information</label>
-                        <textarea
-                            id="requestNote"
-                            rows="3"
-                            placeholder="Add any useful emergency details"
-                        ></textarea>
-                    </div>
-
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="requestConsent" required />
-                        <span>
-                            I understand that this is a demo request and real
-                            medical information should only be shared with
-                            authorized professionals.
-                        </span>
-                    </label>
-
-                    <button type="submit" class="primary-button full-button">
-                        Create Emergency Request
-                        <span>→</span>
-                    </button>
-
-                    <div id="requestResult" class="result-box hidden"></div>
-                </form>
-            </div>
-        </section>
-
-        <section class="section soft-section" id="donor-section">
-            <div class="container form-layout reverse-layout">
-                <div class="form-introduction">
-                    <p class="section-label">BECOME A DONOR</p>
-
-                    <h2>Your availability could help someone survive.</h2>
-
-                    <p>
-                        Register as a donor in this demo. Your details will
-                        be stored locally in the browser and used to show
-                        how donor matching can work.
-                    </p>
-
-                    <div class="donor-points">
-                        <div>
-                            <span>✓</span>
-                            <p>Choose your blood group</p>
-                        </div>
-
-                        <div>
-                            <span>✓</span>
-                            <p>Set your current availability</p>
-                        </div>
-
-                        <div>
-                            <span>✓</span>
-                            <p>See demo matches by blood group and availability</p>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="main-form" id="donorForm">
-                    <div class="form-header">
-                        <div>
-                            <span class="form-label">DONOR REGISTRATION</span>
-                            <h3>Become a Donor</h3>
-                        </div>
-
-                        <span class="form-badge">Demo mode</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="donorName">Full name</label>
-                        <input
-                            type="text"
-                            id="donorName"
-                            placeholder="Enter your name"
-                            required
-                        />
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="donorBloodGroup">Blood group</label>
-                            <select id="donorBloodGroup" required>
-                                <option value="">Select group</option>
-                                <option value="A+">A+</option>
-                                <option value="A-">A-</option>
-                                <option value="B+">B+</option>
-                                <option value="B-">B-</option>
-                                <option value="AB+">AB+</option>
-                                <option value="AB-">AB-</option>
-                                <option value="O+">O+</option>
-                                <option value="O-">O-</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="donorCity">City</label>
-                            <input
-                                type="text"
-                                id="donorCity"
-                                placeholder="Enter your city"
-                                required
-                            />
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="donorPhone">Phone number</label>
-                            <input
-                                type="tel"
-                                id="donorPhone"
-                                placeholder="Enter your phone number"
-                                required
-                            />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="donorAvailability">Availability</label>
-                            <select id="donorAvailability" required>
-                                <option value="">Select availability</option>
-                                <option value="Available now">Available now</option>
-                                <option value="Available today">Available today</option>
-                                <option value="Unavailable">Unavailable</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="donorConsent" required />
-                        <span>
-                            I understand this is a demo. My details will stay
-                            in this browser and will not be sent to donors,
-                            hospitals, or blood banks.
-                        </span>
-                    </label>
-
-                    <button type="submit" class="primary-button full-button">
-                        Register as a Donor
-                        <span>→</span>
-                    </button>
-
-                    <div id="donorResult" class="result-box hidden" aria-live="polite"></div>
-                </form>
-            </div>
-        </section>
-
-        <section class="section" id="dashboard">
-            <div class="container">
-                <div class="section-heading">
-                    <div>
-                        <p class="section-label">LOCAL DEMO DASHBOARD</p>
-                        <h2>Activity in this browser.</h2>
-                    </div>
-                    <p>
-                        These counts and entries come from demo data saved in
-                        this browser only. They do not represent live requests
-                        or confirmed blood availability.
-                    </p>
-                </div>
-
-                <div class="dashboard-stats">
-                    <div class="dashboard-stat">
-                        <span>Total requests</span>
-                        <strong id="totalRequests">0</strong>
-                    </div>
-                    <div class="dashboard-stat">
-                        <span>Registered donors</span>
-                        <strong id="totalDonors">0</strong>
-                    </div>
-                    <div class="dashboard-stat">
-                        <span>Critical requests</span>
-                        <strong id="criticalRequests">0</strong>
-                    </div>
-                    <div class="dashboard-stat">
-                        <span>Available demo donors</span>
-                        <strong id="availableDonors">0</strong>
-                    </div>
-                </div>
-
-                <div class="dashboard-panel">
-                    <div class="panel-heading">
-                        <div>
-                            <p class="section-label">RECENT ACTIVITY</p>
-                            <h3>Requests and registrations</h3>
-                        </div>
-                        <button type="button" class="small-button" id="clearDemoData">
-                            Clear demo data
-                        </button>
-                    </div>
-
-                    <div class="activity-list" id="activityList" aria-live="polite"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section soft-section" id="about">
-            <div class="container form-introduction">
-                <p class="section-label">ABOUT THIS PROJECT</p>
-                <h2>A prototype for emergency coordination.</h2>
-                <p>
-                    LifeLink is currently a front-end demonstration. Requests
-                    and donor registrations are stored in this browser only.
-                    The project does not verify hospitals or donors, send
-                    notifications, or guarantee blood availability. For an
-                    actual emergency, contact a hospital or licensed blood bank.
-                </p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-content">
-            <div>
-                <a href="#home" class="brand footer-brand">
-                    <span class="brand-icon">+</span>
-                    <span>Life<span>Link</span></span>
-                </a>
-                <p>Find blood. Save a life.</p>
-            </div>
-            <div class="footer-right">
-                <strong>Managed by Mudda Abinash</strong>
-                <a href="mailto:abhinash1023@gmail.com" aria-label="Email Mudda Abinash">abhinash1023@gmail.com</a>
-                <span>Demonstration prototype · © <span id="currentYear"></span> LifeLink</span>
-            </div>
+          <div class="art-badge art-badge-privacy"><span class="badge-icon badge-icon-green">↗</span><span><strong>Your details stay with you</strong><small>LifeLink has no request form</small></span></div>
+          <p class="art-caption">A simple route to verified blood-centre services</p>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script src="app.js"></script>
+    <section class="section section-white" id="find-blood">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">NEED BLOOD</p>
+            <h2>Three steps to take now.</h2>
+          </div>
+          <p>Use the blood group and component specified by the patient’s doctor. Availability can change quickly.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-number">01</span>
+            <div class="step-icon step-icon-red" aria-hidden="true">＋</div>
+            <h3>Ask the hospital</h3>
+            <p>Confirm the required blood group, component, number of units, and when it is needed.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">02</span>
+            <div class="step-icon step-icon-blue" aria-hidden="true">⌕</div>
+            <h3>Search current stock</h3>
+            <p>Choose your state, district, blood group, and component in the official eRaktKosh stock search.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">03</span>
+            <div class="step-icon step-icon-green" aria-hidden="true">☎</div>
+            <h3>Call before travelling</h3>
+            <p>Ask the blood centre and treating hospital to confirm stock, timing, and required process.</p>
+          </article>
+        </div>
+        <div class="action-panel">
+          <div>
+            <p class="section-kicker">OFFICIAL GOVERNMENT SERVICE</p>
+            <h3>Search blood availability across India</h3>
+            <p>eRaktKosh lists stock reported by participating blood centres. Check the “last updated” time and confirm directly before making plans.</p>
+          </div>
+          <a class="button button-primary" href="https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/stockAvailability.cnt" target="_blank" rel="noopener noreferrer">Open eRaktKosh stock search <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="donate">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">DONATE SAFELY</p>
+            <h2>Use a licensed blood centre.</h2>
+          </div>
+          <p>Eligibility is assessed by trained staff at the centre. LifeLink does not decide who can donate.</p>
+        </div>
+        <div class="resource-grid">
+          <article class="resource-card resource-card-featured">
+            <div class="resource-visual resource-visual-red" aria-hidden="true">
+              <span class="resource-orb">+</span><span class="resource-cube">♥</span>
+            </div>
+            <p class="resource-label">FIND A CENTRE</p>
+            <h3>Blood bank directory</h3>
+            <p>Open the eRaktKosh directory to find blood-centre information, then call the centre to confirm its services and hours.</p>
+            <a class="text-link" href="https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/transactions/bbpublicindex.html" target="_blank" rel="noopener noreferrer">Open official directory <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="resource-card">
+            <div class="resource-visual resource-visual-blue" aria-hidden="true">
+              <span class="calendar-page"><b>♥</b><i></i><i></i><i></i></span>
+            </div>
+            <p class="resource-label">DONATION CAMPS</p>
+            <h3>Find an upcoming camp</h3>
+            <p>Search the official camp schedule by state and district. Contact the organiser to confirm the date and registration details.</p>
+            <a class="text-link" href="https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/campSchedule.cnt" target="_blank" rel="noopener noreferrer">View camp schedule <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="resource-card">
+            <div class="resource-visual resource-visual-green" aria-hidden="true">
+              <span class="heart-shield">♥</span><span class="orbit-dot"></span>
+            </div>
+            <p class="resource-label">VOLUNTEER DONORS</p>
+            <h3>Register with eRaktKosh</h3>
+            <p>Donor registration is handled directly by the Government of India portal. Review its terms before submitting personal details.</p>
+            <a class="text-link" href="https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/onlineDonationRequest.cnt" target="_blank" rel="noopener noreferrer">Open official donor registration <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+        <p class="external-note"><span aria-hidden="true">↗</span> These links open eRaktKosh. Any details you choose to enter there go to that service, not to LifeLink.</p>
+      </div>
+    </section>
+
+    <section class="section section-white" id="prepare">
+      <div class="container prepare-grid">
+        <div>
+          <p class="section-kicker">BEFORE YOU GO</p>
+          <h2>Make the call easier.</h2>
+          <p class="prepare-lede">Keep the hospital’s instructions close and ask the blood centre directly. Do not rely on an online listing alone.</p>
+          <a class="button button-light" href="https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/termsAndConditions.cnt" target="_blank" rel="noopener noreferrer">How eRaktKosh describes its data <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="call-checklist">
+          <div><span>1</span><p>Which blood group and component did the doctor request?</p></div>
+          <div><span>2</span><p>How many units are needed, and by what time?</p></div>
+          <div><span>3</span><p>Is the stock still available today, and what should we bring?</p></div>
+          <div><span>4</span><p>Should the family coordinate through the hospital blood centre?</p></div>
+          <p class="checklist-footnote">A hospital or licensed blood centre must confirm suitability, compatibility, and availability.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="emergency-section">
+      <div class="container emergency-inner">
+        <div>
+          <p class="section-kicker section-kicker-light">URGENT HELP</p>
+          <h2>For a medical emergency, contact professionals now.</h2>
+          <p>Call the treating hospital or its blood centre. India’s 112 service is the pan-India emergency response number for urgent assistance.</p>
+        </div>
+        <div class="emergency-actions">
+          <a class="button button-emergency" href="tel:112"><span aria-hidden="true">☎</span> Call 112</a>
+          <a class="emergency-link" href="https://112.gov.in/" target="_blank" rel="noopener noreferrer">About India’s 112 service <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="safety">
+      <div class="container safety-grid">
+        <div>
+          <p class="section-kicker">CLEAR ABOUT TRUST</p>
+          <h2>What LifeLink does—and does not do.</h2>
+        </div>
+        <div class="safety-copy">
+          <p>LifeLink is an independent information guide, not a Government of India service, hospital, or blood bank. We help people reach official resources.</p>
+          <ul>
+            <li>No patient requests or donor details are collected on this site.</li>
+            <li>Blood availability and donor eligibility must be confirmed by a licensed blood centre and the treating medical team.</li>
+            <li>When you open another service, that service’s privacy policy and terms apply.</li>
+          </ul>
+          <div class="share-row">
+            <button class="button button-light" type="button" id="shareLifeLink">Share this guide</button>
+            <span id="shareStatus" class="share-status" aria-live="polite"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true">+</span><span>Life<span class="brand-accent">Link</span><small>INDIA</small></span></a>
+        <p>Independent guide · Links to official blood services</p>
+      </div>
+      <div class="footer-right">
+        <strong>Managed by Mudda Abinash</strong>
+        <a href="mailto:abhinash1023@gmail.com">abhinash1023@gmail.com</a>
+        <span>© <span id="currentYear"></span> LifeLink India</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
