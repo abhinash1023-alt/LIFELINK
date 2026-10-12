@@ -1308,3 +1308,7 @@ body { background: var(--background); color: var(--text); font-family: "Inter", 
         transition-duration: 0.01ms !important;
     }
 }
+
+
+/* Keep the hero headline legible in narrow viewports. */
+.hero-content h1 span { display: block; }
