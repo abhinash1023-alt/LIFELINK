@@ -310,20 +310,18 @@ async function createRequest(request, env, identity) {
   if (!Number.isFinite(neededByMs) || neededByMs <= now || neededByMs > now + 72 * HOUR) {
     fail(400, "Choose a time within the next 72 hours.");
   }
-  const active = await env.DB.prepare(
-    "SELECT COUNT(*) AS count FROM requests WHERE owner_uid = ? AND expires_at > ?"
-  ).bind(identity.uid, now).first();
-  if (Number(active && active.count) >= 2) fail(429, "Close an existing request before creating another.");
   const id = crypto.randomUUID();
   const expiresAt = Math.min(now + 72 * HOUR, neededByMs);
   const encrypted = await encryptPhone(identity.phone, env);
-  await env.DB.prepare(
-    "INSERT INTO requests (id,owner_uid,blood_group,component,units,state,state_key,district,district_key,hospital,needed_by,expires_at,phone_cipher,phone_iv,share_phone,consent_version,consented_at,created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+  const inserted = await env.DB.prepare(
+    "INSERT INTO requests (id,owner_uid,blood_group,component,units,state,state_key,district,district_key,hospital,needed_by,expires_at,phone_cipher,phone_iv,share_phone,consent_version,consented_at,created_at) " +
+    "SELECT ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? WHERE (SELECT COUNT(*) FROM requests WHERE owner_uid = ? AND expires_at > ?) < 2"
   ).bind(
     id, identity.uid, bloodGroup, body.component, units, location.state, location.stateKey, location.district,
     location.districtKey, hospital, new Date(neededByMs).toISOString(), expiresAt, encrypted.cipher, encrypted.iv,
-    1, "lifelink-contact-v1", now, now
+    1, "lifelink-contact-v1", now, now, identity.uid, now
   ).run();
+  if (!inserted.meta || !inserted.meta.changes) fail(429, "Close an existing request before creating another.");
   return json({ ok: true, id, expiresAt });
 }
 
@@ -355,9 +353,9 @@ async function listMatches(request, env, identity) {
   const now = Date.now();
   const result = await env.DB.prepare(
     "SELECT id,blood_group,component,units,state,district,hospital,needed_by,expires_at,created_at " +
-    "FROM requests WHERE blood_group = ? AND state_key = ? AND district_key = ? AND share_phone = 1 AND expires_at > ? " +
+    "FROM requests WHERE blood_group = ? AND state_key = ? AND district_key = ? AND owner_uid <> ? AND share_phone = 1 AND expires_at > ? " +
     "ORDER BY expires_at ASC LIMIT 30"
-  ).bind(profile.blood_group, profile.state_key, profile.district_key, now).all();
+  ).bind(profile.blood_group, profile.state_key, profile.district_key, identity.uid, now).all();
   return json({ matches: result.results || [] });
 }
 
