@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>LifeLink | Find Blood. Save a Life.</title>
+    <title>LifeLink | Blood support, made clearer</title>
 
     <meta
         name="description"
-        content="LifeLink is a browser-based demo for creating blood requests and matching registered donors by blood group and availability."
+        content="LifeLink is a blood support prototype with local demo requests, donor matching, and a roadmap for more accessible coordination."
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,6 +34,7 @@
                 <a href="#how-it-works">How It Works</a>
                 <a href="#smart-features">Smart Features</a>
                 <a href="#donor-section">Become a Donor</a>
+                <a href="#future">Future</a>
                 <a href="#about">About</a>
             </nav>
 
@@ -49,7 +50,7 @@
                 <div class="hero-content">
                     <div class="eyebrow">
                         <span class="status-dot"></span>
-                        Emergency blood support platform
+                        Community-powered blood support
                     </div>
 
                     <h1>
@@ -81,75 +82,102 @@
                     </div>
 
                     <div class="founder-note">
-                        Designed and developed by
-                        <strong>M. Abinash</strong>
+                        Managed by
+                        <strong>Mudda Abinash</strong>
                     </div>
                 </div>
 
                 <div class="hero-visual">
-                    <div class="visual-glow"></div>
-
-                    <div class="emergency-card">
-                        <div class="card-top">
-                            <div>
-                                <p class="small-label">Emergency request</p>
-                                <h3>Blood needed</h3>
-                            </div>
-
-                            <span class="live-badge">
-                                <span></span>
-                                Sample only
-                            </span>
-                        </div>
-
-                        <div class="blood-display">
-                            <div class="blood-symbol">B+</div>
-
-                            <div>
-                                <p class="small-label">Required blood group</p>
-                                <h2>B Positive</h2>
-                                <p class="muted-text">2 units requested</p>
-                            </div>
-                        </div>
-
-                        <div class="request-progress">
-                            <div class="progress-header">
-                                <span>Sample donor response</span>
-                                <strong>68%</strong>
-                            </div>
-
-                            <div class="progress-track">
-                                <div class="progress-fill"></div>
-                            </div>
-
-                            <div class="progress-footer">
-                                <span>4 sample donors</span>
-                                <span>2 sample responses</span>
-                            </div>
-                        </div>
-
-                        <div class="visual-location">
-                            <span>●</span>
-                            CityCare Hospital
-                            <span class="location-tag">Sample only</span>
-                        </div>
+                    <div class="hero-art-shell">
+                        <svg class="hero-art" viewBox="0 0 640 520" role="img" aria-labelledby="heroArtTitle heroArtDesc">
+                            <title id="heroArtTitle">LifeLink blood support illustration</title>
+                            <desc id="heroArtDesc">A dimensional blood bag, protective medical shield, and floating blood cells illustrate coordinated community support.</desc>
+                            <defs>
+                                <radialGradient id="heroAura" cx="52%" cy="48%" r="58%">
+                                    <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfeaff"/>
+                                </radialGradient>
+                                <linearGradient id="heroBagFront" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#ff766d"/><stop offset=".55" stop-color="#ed4252"/><stop offset="1" stop-color="#bf2542"/>
+                                </linearGradient>
+                                <linearGradient id="heroBagSide" x1="0" y1="0" x2="1" y2="0">
+                                    <stop offset="0" stop-color="#a91d38"/><stop offset="1" stop-color="#db3850"/>
+                                </linearGradient>
+                                <linearGradient id="heroFluid" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0" stop-color="#ffb0a5"/><stop offset="1" stop-color="#ed4050"/>
+                                </linearGradient>
+                                <linearGradient id="heroShield" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#58d6bd"/><stop offset="1" stop-color="#167f85"/>
+                                </linearGradient>
+                                <radialGradient id="heroCell" cx="35%" cy="28%" r="75%">
+                                    <stop offset="0" stop-color="#ffbab3"/><stop offset=".55" stop-color="#f25662"/><stop offset="1" stop-color="#b7223c"/>
+                                </radialGradient>
+                                <filter id="heroShadow" x="-40%" y="-40%" width="180%" height="190%">
+                                    <feDropShadow dx="0" dy="24" stdDeviation="20" flood-color="#213658" flood-opacity=".18"/>
+                                </filter>
+                                <clipPath id="heroBagClip">
+                                    <path d="M248 142h143c17 0 30 13 30 30v235c0 17-13 30-30 30H248c-17 0-30-13-30-30V172c0-17 13-30 30-30Z"/>
+                                </clipPath>
+                            </defs>
+                            <ellipse cx="324" cy="455" rx="194" ry="29" fill="#7186a8" opacity=".16"/>
+                            <circle cx="325" cy="265" r="208" fill="url(#heroAura)"/>
+                            <ellipse cx="325" cy="265" rx="224" ry="154" fill="none" stroke="#b5c8e8" stroke-width="2" stroke-dasharray="3 12" transform="rotate(-21 325 265)" opacity=".8"/>
+                            <ellipse cx="325" cy="265" rx="170" ry="207" fill="none" stroke="#ffffff" stroke-width="3" transform="rotate(29 325 265)" opacity=".95"/>
+                            <g filter="url(#heroShadow)" transform="translate(416 93) rotate(13)">
+                                <path d="M61 8 119 31v57c0 45-24 76-58 94C27 164 3 133 3 88V31L61 8Z" fill="#0c1b2e" opacity=".13" transform="translate(0 9)"/>
+                                <path d="M61 3 119 26v57c0 45-24 76-58 94C27 159 3 128 3 83V26L61 3Z" fill="url(#heroShield)" stroke="#ffffff" stroke-width="5"/>
+                                <path d="M61 17 105 34v48c0 34-17 59-44 75-27-16-44-41-44-75V34l44-17Z" fill="#ffffff" opacity=".13"/>
+                                <path d="M61 116c-4-4-28-20-28-39 0-15 19-21 28-7 9-14 28-8 28 7 0 19-24 35-28 39Z" fill="#fff"/>
+                            </g>
+                            <g filter="url(#heroShadow)" transform="translate(78 170) rotate(-20)">
+                                <ellipse cx="0" cy="0" rx="40" ry="27" fill="url(#heroCell)"/>
+                                <ellipse cx="0" cy="1" rx="20" ry="10" fill="#a91d38" opacity=".5"/>
+                                <ellipse cx="-9" cy="-9" rx="12" ry="5" fill="#fff" opacity=".23"/>
+                            </g>
+                            <g transform="translate(500 352) rotate(16)">
+                                <ellipse cx="0" cy="0" rx="26" ry="18" fill="url(#heroCell)"/>
+                                <ellipse cx="0" cy="1" rx="13" ry="7" fill="#a91d38" opacity=".48"/>
+                                <ellipse cx="-6" cy="-6" rx="8" ry="3.5" fill="#fff" opacity=".22"/>
+                            </g>
+                            <g transform="translate(153 375) rotate(24)">
+                                <ellipse cx="0" cy="0" rx="18" ry="13" fill="url(#heroCell)"/>
+                                <ellipse cx="0" cy="1" rx="9" ry="5" fill="#a91d38" opacity=".48"/>
+                            </g>
+                            <g filter="url(#heroShadow)" transform="rotate(-7 324 270)">
+                                <path d="M391 143h14c17 0 30 13 30 30v234c0 17-13 30-30 30h-14c10-7 16-18 16-31V174c0-13-6-24-16-31Z" fill="url(#heroBagSide)"/>
+                                <path d="M248 142h143c17 0 30 13 30 30v235c0 17-13 30-30 30H248c-17 0-30-13-30-30V172c0-17 13-30 30-30Z" fill="url(#heroBagFront)" stroke="#ffffff" stroke-width="6"/>
+                                <g clip-path="url(#heroBagClip)">
+                                    <path d="M216 289c37-18 60 16 96 0 32-14 48 14 110-5v173H216Z" fill="url(#heroFluid)"/>
+                                    <path d="M218 288c37-18 60 16 96 0 32-14 48 14 110-5" fill="none" stroke="#ffd4cc" stroke-width="5" opacity=".65"/>
+                                    <path d="M250 164h32v204h-32Z" fill="#ffffff" opacity=".12"/>
+                                </g>
+                                <rect x="281" y="102" width="80" height="53" rx="12" fill="#dfe8f4" stroke="#ffffff" stroke-width="5"/>
+                                <rect x="300" y="79" width="42" height="33" rx="8" fill="#b6c5d8"/>
+                                <rect x="254" y="176" width="130" height="1.5" fill="#fff" opacity=".5"/>
+                                <circle cx="320" cy="239" r="42" fill="#ffffff" opacity=".96"/>
+                                <rect x="311" y="210" width="18" height="58" rx="5" fill="#e74655"/>
+                                <rect x="291" y="230" width="58" height="18" rx="5" fill="#e74655"/>
+                                <text x="320" y="408" text-anchor="middle" fill="#fff" font-size="17" font-weight="800" font-family="Inter,Arial,sans-serif" letter-spacing="2">LIFELINK</text>
+                                <path d="M231 192c0-20 16-36 36-36" fill="none" stroke="#fff" stroke-width="5" opacity=".42" stroke-linecap="round"/>
+                            </g>
+                            <g transform="translate(122 97)">
+                                <circle cx="25" cy="25" r="25" fill="#fff" filter="url(#heroShadow)"/>
+                                <path d="M25 12v26M12 25h26" stroke="#ed4957" stroke-width="6" stroke-linecap="round"/>
+                            </g>
+                            <g transform="translate(481 255)">
+                                <circle cx="19" cy="19" r="19" fill="#fff" filter="url(#heroShadow)"/>
+                                <path d="M19 9v20M9 19h20" stroke="#16835b" stroke-width="5" stroke-linecap="round"/>
+                            </g>
+                        </svg>
                     </div>
-
-                    <div class="floating-stat stat-one">
-                        <span class="stat-icon">✓</span>
-                        <div>
-                            <strong>Smart Match</strong>
-                            <small>Blood group + availability</small>
-                        </div>
+                    <div class="hero-float-card hero-float-card--match">
+                        <span class="hero-float-icon">✓</span>
+                        <span><strong>Demo match</strong><small>Blood group + availability</small></span>
                     </div>
-
-                    <div class="floating-stat stat-two">
-                        <span class="stat-icon red-icon">♥</span>
-                        <div>
-                            <strong>One request</strong>
-                            <small>Many helping hands</small>
-                        </div>
+                    <div class="hero-float-card hero-float-card--privacy">
+                        <span class="hero-float-icon hero-float-icon--soft">⌂</span>
+                        <span><strong>Private by design</strong><small>Saved in this browser</small></span>
                     </div>
+                    <p class="hero-art-caption">A clearer path from request to local demo match.</p>
                 </div>
             </div>
         </section>
@@ -227,70 +255,132 @@
             <div class="container">
                 <div class="section-heading">
                     <div>
-                        <p class="section-label">SMART FEATURES</p>
-                        <h2>More than a blood request form.</h2>
+                        <p class="section-label">IN THIS DEMO</p>
+                        <h2>A simple starting point.</h2>
                     </div>
-
                     <p>
-                        LifeLink combines emergency communication, donor
-                        matching, and hospital coordination into one concept.
+                        LifeLink keeps the current experience clear: a local request,
+                        a basic blood-group match, and an activity view you can understand.
                     </p>
                 </div>
-
                 <div class="feature-grid">
                     <article class="feature-card">
                         <div class="feature-icon">⌁</div>
-                        <h3>Smart donor matching</h3>
-                        <p>
-                            This demo matches the exact blood group and donors marked
-                            available now or today. It does not calculate distance,
-                            eligibility, or response history.
-                        </p>
+                        <h3>Blood group matching</h3>
+                        <p>The demo shows registered donors with the same blood group who are marked available now or today.</p>
                     </article>
-
                     <article class="feature-card">
-                        <div class="feature-icon">↗</div>
-                        <h3>Smart Donor Relay</h3>
-                        <p>
-                            Starts with a small nearby donor radius and expands
-                            only when enough responses are not received.
-                        </p>
+                        <div class="feature-icon">＋</div>
+                        <h3>Request ID</h3>
+                        <p>Each local demo request receives an ID so the requester can identify that entry in the browser activity list.</p>
                     </article>
-
                     <article class="feature-card">
-                        <div class="feature-icon">▣</div>
-                        <h3>Emergency QR profile</h3>
-                        <p>
-                            A future QR profile can show essential emergency
-                            details after verified access and consent.
-                        </p>
+                        <div class="feature-icon">▤</div>
+                        <h3>Activity at a glance</h3>
+                        <p>See request and donor counts, urgency totals, and recent activity saved on this device.</p>
                     </article>
-
                     <article class="feature-card">
-                        <div class="feature-icon">◉</div>
-                        <h3>Hospital command view</h3>
-                        <p>
-                            Hospitals can track open requests, donor responses,
-                            verification status, and request urgency.
-                        </p>
+                        <div class="feature-icon">⌂</div>
+                        <h3>Browser-only data</h3>
+                        <p>Demo details stay in local browser storage. The page does not contact donors or medical providers.</p>
                     </article>
+                </div>
+                <a class="roadmap-link" href="#future">Explore the future roadmap <span aria-hidden="true">↓</span></a>
+            </div>
+        </section>
 
-                    <article class="feature-card">
-                        <div class="feature-icon">◌</div>
-                        <h3>Live request timeline</h3>
-                        <p>
-                            Families can understand whether a request is
-                            created, verified, matched, or fulfilled.
-                        </p>
+        <section class="section future-section" id="future">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">A PEOPLE-FIRST ROADMAP</p>
+                        <h2>Useful next steps, built with care.</h2>
+                    </div>
+                    <p>
+                        These are future ideas, not live services. Each would need
+                        trusted partners, consent, privacy safeguards, and medical review.
+                    </p>
+                </div>
+                <div class="roadmap-grid">
+                    <article class="roadmap-card">
+                        <div class="roadmap-art roadmap-art--stock">
+                            <svg viewBox="0 0 200 150" role="img" aria-label="Dimensional blood storage bags">
+                                <defs>
+                                    <linearGradient id="stockPack" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff958b"/><stop offset=".55" stop-color="#ec4b59"/><stop offset="1" stop-color="#ba2b45"/></linearGradient>
+                                    <linearGradient id="stockPack2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#cbdcff"/><stop offset="1" stop-color="#6b86d8"/></linearGradient>
+                                </defs>
+                                <ellipse cx="102" cy="131" rx="70" ry="9" fill="#354665" opacity=".12"/>
+                                <g transform="translate(30 19) rotate(-8 42 55)">
+                                    <path d="M30 4h30v13H30z" fill="#dce5f2"/>
+                                    <path d="M16 18h58a9 9 0 0 1 9 9v75a10 10 0 0 1-10 10H17a10 10 0 0 1-10-10V27a9 9 0 0 1 9-9Z" fill="url(#stockPack)" stroke="#fff" stroke-width="4"/>
+                                    <path d="M9 65c16-8 27 7 40 0s21 6 34-1v38a10 10 0 0 1-10 10H17a10 10 0 0 1-10-10Z" fill="#fca9a0" opacity=".8"/>
+                                    <path d="M43 40v25M31 52h24" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                                    <path d="M17 29h12v22H17z" fill="#fff" opacity=".22"/>
+                                </g>
+                                <g transform="translate(100 34) rotate(9 38 45)">
+                                    <path d="M29 2h27v12H29z" fill="#dce5f2"/>
+                                    <path d="M13 15h60a9 9 0 0 1 9 9v66a10 10 0 0 1-10 10H14A10 10 0 0 1 4 90V24a9 9 0 0 1 9-9Z" fill="url(#stockPack2)" stroke="#fff" stroke-width="4"/>
+                                    <path d="M8 61c14-7 26 6 39 0 11-6 23 5 36-2v31a10 10 0 0 1-10 10H14A10 10 0 0 1 4 90V61Z" fill="#8ea8ed"/>
+                                    <circle cx="43" cy="42" r="13" fill="#fff" opacity=".95"/>
+                                    <path d="M43 34v16M35 42h16" stroke="#5f7ed6" stroke-width="4" stroke-linecap="round"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <span class="roadmap-pill">Planned with blood-bank partners</span>
+                        <h3>Current stock, clearly dated</h3>
+                        <p>Show partner-confirmed availability with a “last updated” time, then help hospitals coordinate stock before usable units expire.</p>
                     </article>
-
-                    <article class="feature-card">
-                        <div class="feature-icon">⌘</div>
-                        <h3>Multilingual support</h3>
-                        <p>
-                            Emergency instructions can be presented in simple
-                            language to improve accessibility.
-                        </p>
+                    <article class="roadmap-card">
+                        <div class="roadmap-art roadmap-art--access">
+                            <svg viewBox="0 0 200 150" role="img" aria-label="Dimensional phone with language and access controls">
+                                <defs>
+                                    <linearGradient id="phoneBody" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#243956"/><stop offset="1" stop-color="#0d1d34"/></linearGradient>
+                                    <linearGradient id="phoneScreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#eaf1fb"/></linearGradient>
+                                </defs>
+                                <ellipse cx="103" cy="132" rx="54" ry="8" fill="#354665" opacity=".14"/>
+                                <g transform="translate(69 9) rotate(8 34 63)">
+                                    <rect x="1" y="0" width="70" height="125" rx="18" fill="#a8bbd8" opacity=".65"/>
+                                    <rect x="0" y="0" width="66" height="121" rx="17" fill="url(#phoneBody)" stroke="#fff" stroke-width="4"/>
+                                    <rect x="6" y="13" width="54" height="93" rx="10" fill="url(#phoneScreen)"/>
+                                    <rect x="22" y="5" width="21" height="3" rx="2" fill="#9fb1c8"/>
+                                    <circle cx="33" cy="113" r="4" fill="#b7c7dc"/>
+                                    <circle cx="33" cy="39" r="18" fill="#fde4e0"/>
+                                    <text x="33" y="45" text-anchor="middle" fill="#dc4a57" font-size="18" font-family="Arial,sans-serif" font-weight="700">Aa</text>
+                                    <rect x="15" y="67" width="37" height="6" rx="3" fill="#b4c3d8"/>
+                                    <rect x="15" y="80" width="28" height="6" rx="3" fill="#d0d9e6"/>
+                                </g>
+                                <g transform="translate(124 37)">
+                                    <rect x="0" y="0" width="58" height="34" rx="14" fill="#fff" filter="drop-shadow(0 8px 8px #92a4bd55)"/>
+                                    <path d="M14 17h30M29 8v18" stroke="#36a995" stroke-width="4" stroke-linecap="round"/>
+                                </g>
+                                <circle cx="47" cy="47" r="16" fill="#fff" filter="drop-shadow(0 8px 8px #92a4bd55)"/>
+                                <path d="M41 47h12M47 41v12" stroke="#ed4b59" stroke-width="3.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <span class="roadmap-pill">Designed for low connectivity</span>
+                        <h3>Language and low-network access</h3>
+                        <p>Offer simple local-language guidance and low-data or SMS updates, with a clear opt-in before any message is sent.</p>
+                    </article>
+                    <article class="roadmap-card">
+                        <div class="roadmap-art roadmap-art--care">
+                            <svg viewBox="0 0 200 150" role="img" aria-label="Dimensional shield with heart and checkmark">
+                                <defs>
+                                    <linearGradient id="careShield" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#59d8bd"/><stop offset="1" stop-color="#16848b"/></linearGradient>
+                                    <linearGradient id="careHeart" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8279"/><stop offset="1" stop-color="#dc3b51"/></linearGradient>
+                                </defs>
+                                <ellipse cx="101" cy="133" rx="46" ry="8" fill="#354665" opacity=".14"/>
+                                <circle cx="101" cy="73" r="56" fill="#fff" opacity=".6"/>
+                                <path d="M100 22 143 39v36c0 32-18 52-43 65-25-13-43-33-43-65V39l43-17Z" fill="#095c69" opacity=".18" transform="translate(4 8)"/>
+                                <path d="M100 16 143 33v36c0 32-18 52-43 65-25-13-43-33-43-65V33l43-17Z" fill="url(#careShield)" stroke="#fff" stroke-width="5"/>
+                                <path d="M100 89c-4-4-25-18-25-34 0-13 16-19 25-6 9-13 25-7 25 6 0 16-21 30-25 34Z" fill="url(#careHeart)"/>
+                                <path d="m82 103 12 12 25-28" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="153" cy="34" r="11" fill="#fff"/>
+                                <path d="m149 34 3 3 6-7" fill="none" stroke="#2a9c88" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="roadmap-pill">Reviewed by qualified professionals</span>
+                        <h3>Donor care, not guesswork</h3>
+                        <p>Offer optional donation reminders and clear referral guidance. Eligibility decisions stay with licensed staff; the app should never diagnose or approve donation.</p>
                     </article>
                 </div>
             </div>
@@ -642,8 +732,9 @@
                 <p>Find blood. Save a life.</p>
             </div>
             <div class="footer-right">
-                <span>Demonstration prototype</span>
-                <span>© <span id="currentYear"></span> LifeLink</span>
+                <strong>Managed by Mudda Abinash</strong>
+                <a href="mailto:abhinash1023@gmail.com" aria-label="Email Mudda Abinash">abhinash1023@gmail.com</a>
+                <span>Demonstration prototype · © <span id="currentYear"></span> LifeLink</span>
             </div>
         </div>
     </footer>
