@@ -8,7 +8,7 @@
 
     <meta
         name="description"
-        content="LifeLink connects urgent blood requests with eligible nearby donors through smart matching and emergency support."
+        content="LifeLink is a browser-based demo for creating blood requests and matching registered donors by blood group and availability."
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -58,9 +58,9 @@
                     </h1>
 
                     <p class="hero-description">
-                        LifeLink helps patients, families, hospitals, and donors
-                        connect during urgent blood requirements through smart
-                        matching and coordinated emergency support.
+                        LifeLink is a browser-based demo for creating blood requests and showing
+                        donor matches by blood group and availability. It does not
+                        contact donors, hospitals, or blood banks.
                     </p>
 
                     <div class="hero-actions">
@@ -75,9 +75,9 @@
                     </div>
 
                     <div class="hero-features">
-                        <span>AI-assisted matching</span>
+                        <span>Blood group matching</span>
                         <span>Emergency request ID</span>
-                        <span>Smart donor relay</span>
+                        <span>Browser-based demo</span>
                     </div>
 
                     <div class="founder-note">
@@ -98,7 +98,7 @@
 
                             <span class="live-badge">
                                 <span></span>
-                                Live demo
+                                Sample only
                             </span>
                         </div>
 
@@ -114,7 +114,7 @@
 
                         <div class="request-progress">
                             <div class="progress-header">
-                                <span>Donor response</span>
+                                <span>Sample donor response</span>
                                 <strong>68%</strong>
                             </div>
 
@@ -123,15 +123,15 @@
                             </div>
 
                             <div class="progress-footer">
-                                <span>4 donors notified</span>
-                                <span>2 responses received</span>
+                                <span>4 sample donors</span>
+                                <span>2 sample responses</span>
                             </div>
                         </div>
 
                         <div class="visual-location">
                             <span>●</span>
                             CityCare Hospital
-                            <span class="location-tag">Verified demo</span>
+                            <span class="location-tag">Sample only</span>
                         </div>
                     </div>
 
@@ -204,8 +204,8 @@
                         <div class="step-icon">⌕</div>
                         <h3>Find suitable donors</h3>
                         <p>
-                            LifeLink checks blood group, donor availability,
-                            location, and response priority.
+                            This demo matches exact blood group and donor availability.
+                            It does not use location or response priority.
                         </p>
                     </article>
 
@@ -214,8 +214,9 @@
                         <div class="step-icon">♥</div>
                         <h3>Coordinate support</h3>
                         <p>
-                            Donors receive the request and can respond through
-                            a simple emergency workflow.
+                            This prototype does not send notifications or collect donor
+                            responses. Contact a hospital or licensed blood bank
+                            to confirm real availability.
                         </p>
                     </article>
                 </div>
@@ -241,8 +242,9 @@
                         <div class="feature-icon">⌁</div>
                         <h3>Smart donor matching</h3>
                         <p>
-                            Prioritizes suitable donors based on blood group,
-                            availability, distance, and response history.
+                            This demo matches the exact blood group and donors marked
+                            available now or today. It does not calculate distance,
+                            eligibility, or response history.
                         </p>
                     </article>
 
@@ -473,7 +475,7 @@
 
                         <div>
                             <span>✓</span>
-                            <p>Receive matching demo requests</p>
+                            <p>See demo matches by blood group and availability</p>
                         </div>
                     </div>
                 </div>
@@ -497,3 +499,155 @@
                             required
                         />
                     </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="donorBloodGroup">Blood group</label>
+                            <select id="donorBloodGroup" required>
+                                <option value="">Select group</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donorCity">City</label>
+                            <input
+                                type="text"
+                                id="donorCity"
+                                placeholder="Enter your city"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="donorPhone">Phone number</label>
+                            <input
+                                type="tel"
+                                id="donorPhone"
+                                placeholder="Enter your phone number"
+                                required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donorAvailability">Availability</label>
+                            <select id="donorAvailability" required>
+                                <option value="">Select availability</option>
+                                <option value="Available now">Available now</option>
+                                <option value="Available today">Available today</option>
+                                <option value="Unavailable">Unavailable</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="donorConsent" required />
+                        <span>
+                            I understand this is a demo. My details will stay
+                            in this browser and will not be sent to donors,
+                            hospitals, or blood banks.
+                        </span>
+                    </label>
+
+                    <button type="submit" class="primary-button full-button">
+                        Register as a Donor
+                        <span>→</span>
+                    </button>
+
+                    <div id="donorResult" class="result-box hidden" aria-live="polite"></div>
+                </form>
+            </div>
+        </section>
+
+        <section class="section" id="dashboard">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">LOCAL DEMO DASHBOARD</p>
+                        <h2>Activity in this browser.</h2>
+                    </div>
+                    <p>
+                        These counts and entries come from demo data saved in
+                        this browser only. They do not represent live requests
+                        or confirmed blood availability.
+                    </p>
+                </div>
+
+                <div class="dashboard-stats">
+                    <div class="dashboard-stat">
+                        <span>Total requests</span>
+                        <strong id="totalRequests">0</strong>
+                    </div>
+                    <div class="dashboard-stat">
+                        <span>Registered donors</span>
+                        <strong id="totalDonors">0</strong>
+                    </div>
+                    <div class="dashboard-stat">
+                        <span>Critical requests</span>
+                        <strong id="criticalRequests">0</strong>
+                    </div>
+                    <div class="dashboard-stat">
+                        <span>Available demo donors</span>
+                        <strong id="availableDonors">0</strong>
+                    </div>
+                </div>
+
+                <div class="dashboard-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="section-label">RECENT ACTIVITY</p>
+                            <h3>Requests and registrations</h3>
+                        </div>
+                        <button type="button" class="small-button" id="clearDemoData">
+                            Clear demo data
+                        </button>
+                    </div>
+
+                    <div class="activity-list" id="activityList" aria-live="polite"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section soft-section" id="about">
+            <div class="container form-introduction">
+                <p class="section-label">ABOUT THIS PROJECT</p>
+                <h2>A prototype for emergency coordination.</h2>
+                <p>
+                    LifeLink is currently a front-end demonstration. Requests
+                    and donor registrations are stored in this browser only.
+                    The project does not verify hospitals or donors, send
+                    notifications, or guarantee blood availability. For an
+                    actual emergency, contact a hospital or licensed blood bank.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div>
+                <a href="#home" class="brand footer-brand">
+                    <span class="brand-icon">+</span>
+                    <span>Life<span>Link</span></span>
+                </a>
+                <p>Find blood. Save a life.</p>
+            </div>
+            <div class="footer-right">
+                <span>Demonstration prototype</span>
+                <span>© <span id="currentYear"></span> LifeLink</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
