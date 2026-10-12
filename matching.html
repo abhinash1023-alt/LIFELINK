@@ -55,7 +55,7 @@
             <div><p class="section-kicker">SECURE SIGN-IN</p><h2 id="signin-heading">Verify your phone number.</h2></div>
             <p>Phone verification confirms access to a number. It does not verify a person’s identity, donor eligibility, or a blood request.</p>
           </div>
-          <form id="phone-form" class="stack-form">
+          <form id="phone-form" class="stack-form" method="post" action="/api/config">
             <label for="phone-number">Mobile number in international format</label>
             <input id="phone-number" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+919876543210" pattern="\+[1-9][0-9]{7,14}" maxlength="16" required>
             <label class="check-row">
@@ -63,14 +63,14 @@
               <span>I agree to Firebase phone sign-in. Google processes phone numbers for authentication and abuse prevention. SMS or carrier charges may apply. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Firebase privacy details</a>.</span>
             </label>
             <div id="recaptcha-container" class="recaptcha-box" aria-label="reCAPTCHA verification"></div>
-            <button id="send-code" class="button button-primary" type="submit" disabled>Send verification code</button>
+            <button id="send-code" class="button button-primary" type="button" disabled>Send verification code</button>
             <p id="phone-status" class="form-status" role="status" aria-live="polite"></p>
           </form>
-          <form id="code-form" class="stack-form" hidden>
+          <form id="code-form" class="stack-form" method="post" action="/api/config" hidden>
             <label for="sms-code">Six-digit SMS code</label>
             <input id="sms-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required>
             <div class="inline-actions">
-              <button class="button button-primary" type="submit">Verify and continue</button>
+              <button id="verify-code" class="button button-primary" type="button">Verify and continue</button>
               <button id="change-number" class="button button-light" type="button">Change number</button>
             </div>
             <p id="code-status" class="form-status" role="status" aria-live="polite"></p>
@@ -89,7 +89,7 @@
                 <div><p class="section-kicker">VOLUNTEER</p><h2 id="profile-heading">Offer to help.</h2></div>
               </div>
               <p class="form-intro">Your blood group and district are used to find same-group requests. Your phone number is not shared with requesters. A hospital checks eligibility and compatibility.</p>
-              <form id="profile-form" class="stack-form">
+              <form id="profile-form" class="stack-form" method="post" action="/api/config">
                 <label for="profile-group">Your recorded blood group</label>
                 <select id="profile-group" name="bloodGroup" required>
                   <option value="">Choose blood group</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
@@ -102,7 +102,7 @@
                   <input name="volunteerConsent" type="checkbox" required>
                   <span>I volunteer to be shown requests with this recorded blood group and district. I understand a hospital or licensed blood centre decides whether I can donate.</span>
                 </label>
-                <button class="button button-primary" type="submit">Save volunteer profile</button>
+                <button id="save-profile" class="button button-primary" type="button">Save volunteer profile</button>
                 <p id="profile-status" class="form-status" role="status" aria-live="polite"></p>
               </form>
               <div class="subsection">
@@ -116,7 +116,7 @@
                 <div><p class="section-kicker">REQUEST BLOOD</p><h2 id="request-heading">Post a short-lived request.</h2></div>
               </div>
               <p class="form-intro">Use the requirement provided by the treating hospital. Do not enter a patient’s name, diagnosis, Aadhaar number, or medical documents.</p>
-              <form id="request-form" class="stack-form">
+              <form id="request-form" class="stack-form" method="post" action="/api/config">
                 <label for="request-group">Blood group requested by the hospital</label>
                 <select id="request-group" name="bloodGroup" required>
                   <option value="">Choose blood group</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
@@ -139,7 +139,7 @@
                   <input name="sharePhone" type="checkbox" required>
                   <span>I consent to sharing the verified phone number on this account with signed-in volunteers whose recorded blood group and district match this request. I am the requester or have permission to coordinate for them. I understand a recipient may keep or share the number after seeing it.</span>
                 </label>
-                <button class="button button-primary" type="submit">Post request</button>
+                <button id="post-request" class="button button-primary" type="button">Post request</button>
                 <p id="request-status" class="form-status" role="status" aria-live="polite"></p>
               </form>
               <div class="subsection">

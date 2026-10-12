@@ -300,8 +300,8 @@ async function createRequest(request, env, identity) {
   if (body.sharePhone !== true) fail(400, "Consent to share your verified number with matching volunteers is required for direct contact.");
   const bloodGroup = parseGroup(body.bloodGroup);
   if (typeof body.component !== "string" || !COMPONENTS.has(body.component)) fail(400, "Choose a valid blood component.");
-  const units = Number(body.units);
-  if (!Number.isInteger(units) || units < 1 || units > 20) fail(400, "Enter a number of units from 1 to 20.");
+  const units = body.units;
+  if (typeof units !== "number" || !Number.isInteger(units) || units < 1 || units > 20) fail(400, "Enter a number of units from 1 to 20.");
   const location = validateLocation(body.state, body.district);
   const hospital = textField(body.hospital, 2, 100, "hospital or blood-centre name");
   if (typeof body.neededBy !== "string") fail(400, "Choose when the blood is needed.");
