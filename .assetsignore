@@ -1,0 +1,9 @@
+worker/
+migrations/
+.github/
+.git/
+wrangler.jsonc
+README.md
+SECURITY.md
+LICENSE
+*.md

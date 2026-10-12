@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="description" content="How LifeLink India uses phone authentication, donor profiles, blood requests, and contact consent.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+  <link rel="stylesheet" href="style.css?v=matching-release-2026-10">
+  <title>Privacy and data use | LifeLink India</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="LifeLink India home"><span class="brand-mark" aria-hidden="true">+</span><span>Life<span class="brand-accent">Link</span><small>INDIA</small></span></a>
+      <nav class="main-nav" aria-label="Main navigation"><a href="index.html">Official services</a><a href="matching.html">Matching</a></nav>
+      <a class="nav-action" href="mailto:abhinash1023@gmail.com">Contact <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="matching-hero privacy-hero">
+      <div class="container narrow-container">
+        <p class="eyebrow">LIFELINK INDIA · PRIVACY</p>
+        <h1>Privacy and <span>data use.</span></h1>
+        <p class="matching-lede">Last updated 13 October 2026. LifeLink is an independent community service managed by Mudda Abinash, not a hospital, blood bank, or government service.</p>
+      </div>
+    </section>
+    <section class="section section-white">
+      <div class="container narrow-container privacy-content">
+        <h2>Information used</h2>
+        <p>When phone matching is enabled, Firebase Authentication verifies the phone number you enter. A volunteer profile stores your Firebase user ID, recorded blood group, state, district, and the volunteer-consent version and timestamp. A request stores the blood group and component requested by the hospital, units, state, district, hospital or blood-centre name, needed-by time, consent record, and an encrypted copy of the verified phone number on the account.</p>
+        <p>Please do not submit a patient name, diagnosis, Aadhaar number, medical document, or other clinical details. Only enter a hospital or licensed blood-centre name and the requirement given by its staff.</p>
+
+        <h2>Phone sign-in and Google</h2>
+        <p>LifeLink uses Firebase Authentication phone sign-in and reCAPTCHA. Google says phone numbers provided for authentication are sent to and stored by Google to help prevent spam and abuse across Google services. Firebase sends the one-time code by SMS; carrier or message charges may apply. Phone verification confirms access to a number, not identity. <a href="https://firebase.google.com/docs/auth/web/phone-auth" target="_blank" rel="noopener noreferrer">Firebase phone sign-in details</a> · <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Firebase privacy information</a>.</p>
+
+        <h2>How contact is shared</h2>
+        <p>A requester’s verified phone number is encrypted in the LifeLink database using AES-GCM and is not displayed in public pages or match lists. It is released only after the requester opts in and a signed-in volunteer has a profile with the same recorded blood group, state, and district, then presses the reveal button. A volunteer’s phone number is not shown to requesters. LifeLink cannot prevent a recipient from copying or forwarding a number after it is revealed.</p>
+        <p>Matching is a directory filter only. It does not determine medical compatibility, verify a request, or determine whether a volunteer is eligible to donate. Always coordinate through the treating hospital or licensed blood centre.</p>
+
+        <h2>Storage and retention</h2>
+        <p>LifeLink’s server code and database are hosted through Cloudflare Workers and D1. Request phone numbers are encrypted before they are written to the database; the Cloudflare Worker holds the key needed to decrypt a number after an authorized contact reveal. The remaining request and volunteer profile fields are not end-to-end encrypted. Access and deletion depend on the hosting account and configuration.</p>
+        <p>A request closes at its needed-by time or within 72 hours, whichever comes first, and expired records are automatically cleaned up hourly. You can close a request sooner or use “Delete data and account.” Volunteer profiles stay until you delete them. Minimal contact-release history is retained for up to 30 days to limit repeated disclosure; deleting your LifeLink data removes the history linked to your account.</p>
+
+        <h2>Your choices and safety</h2>
+        <p>Do not post another person’s phone number unless you are authorized to coordinate for them and they agree to the sharing described on the request form. If you receive an unwanted call, stop responding and contact the treating hospital. You can close a request, sign out, or delete your LifeLink data at any time. Firebase may require a fresh SMS sign-in before its authentication account can be deleted.</p>
+        <p>For privacy questions or a deletion request, email <a href="mailto:abhinash1023@gmail.com">abhinash1023@gmail.com</a>. Do not include patient records, passwords, OTPs, or sensitive medical details in an email.</p>
+
+        <div class="matching-alert" role="note"><strong>Emergency:</strong> Contact the treating hospital or call <a href="tel:112">112</a>. For official stock and licensed blood-centre information, use <a href="https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/stockAvailability.cnt" target="_blank" rel="noopener noreferrer">eRaktKosh</a>.</div>
+        <p class="managed-by">Managed by <strong>Mudda Abinash</strong> · <a href="mailto:abhinash1023@gmail.com">abhinash1023@gmail.com</a></p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand brand-footer" href="index.html"><span class="brand-mark" aria-hidden="true">+</span><span>Life<span class="brand-accent">Link</span><small>INDIA</small></span></a><p class="footer-note"><a href="matching.html">Volunteer or post a request</a></p></div></footer>
+</body>
+</html>
