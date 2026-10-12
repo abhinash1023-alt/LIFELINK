@@ -13,7 +13,7 @@
     {
       "binding": "DB",
       "database_name": "lifelink-prod",
-      "database_id": "REPLACE_WITH_CLOUDFLARE_D1_DATABASE_ID",
+      "database_id": "e5077158-eb30-4913-baa2-c8db8f2a44e1",
       "migrations_dir": "migrations"
     }
   ],
