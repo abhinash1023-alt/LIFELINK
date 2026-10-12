@@ -1,141 +1,45 @@
-# LifeLink
+# LifeLink India
 
-LifeLink is a smart emergency blood coordination platform created to help
-patients, families, donors, hospitals, and blood banks coordinate during
-urgent blood requirements.
+LifeLink India is an independent, India-wide guide that helps people reach official blood-service resources. The site links to eRaktKosh, the Government of India blood-centre management portal, for stock search, blood-centre information, donation camps, and voluntary donor registration.
 
-## Project Vision
+**Live site:** https://abhinash1023-alt.github.io/LIFELINK/
 
-The main purpose of LifeLink is simple:
+## What visitors can do
 
-> One request. Many helping hands.
+- Search blood stock by state, district, blood group, and component on eRaktKosh.
+- Open the official blood-centre directory and camp schedule.
+- Choose to register as a voluntary donor directly with eRaktKosh.
+- Use a short checklist to prepare a call to the treating hospital or blood centre.
+- Call 112 for urgent emergency assistance in India.
+- Share the guide from a supported device or copy its link.
 
-During emergencies, families often waste valuable time searching for blood
-donors through different groups, phone calls, and social media platforms.
+## Clear boundaries
 
-LifeLink brings the most important actions into one platform:
+LifeLink is not a hospital, blood bank, or Government of India service. It does not collect patient requests, donor profiles, phone numbers, or medical details. It has no private donor database and does not reserve blood or decide donor eligibility.
 
-- Create an emergency blood request
-- Select the required blood group
-- Enter hospital and contact details
-- Register as a blood donor
-- Match donors according to blood group
-- Display emergency request IDs
-- Track demo activity
-- Demonstrate Smart Donor Relay
-- Present a future hospital command dashboard
+Availability can change. Visitors should check the update time and confirm directly with the blood centre and treating hospital before travelling. Donor eligibility and medical decisions belong to the licensed blood-centre staff and treating clinicians. Links to eRaktKosh leave this site; information submitted there is handled under that service's own terms and privacy policy.
 
-## Main Features
+## Files
 
-### 1. Emergency Blood Request
+- `index.html`: India-wide resource guide and links to official services.
+- `style.css`: responsive styling and inline illustration presentation.
+- `app.js`: current year and optional share/copy-link action.
 
-Users can create a blood request by entering:
+The project is a static site and requires no database, account system, or server-side storage.
 
-- Patient name
-- Blood group
-- Number of units
-- Urgency level
-- Hospital name
-- City
-- Emergency contact
-- Additional information
+## Local preview
 
-Each request receives a unique request ID.
+Open `index.html` in a browser, or serve the repository with a local static web server. Publishing is handled by the repository's GitHub Pages workflow.
 
-### 2. Donor Registration
+## Official links
 
-People can register as donors by entering:
+- [eRaktKosh blood stock search](https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/stockAvailability.cnt)
+- [eRaktKosh blood-centre directory](https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/transactions/bbpublicindex.html)
+- [eRaktKosh camp schedule](https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/campSchedule.cnt)
+- [eRaktKosh voluntary donor registration](https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/onlineDonationRequest.cnt)
+- [India 112 Emergency Response Support System](https://112.gov.in/)
+- [Directorate General of Health Services: Blood Transfusion Services](https://dghs.mohfw.gov.in/bts.php)
 
-- Full name
-- Blood group
-- City
-- Phone number
-- Availability
+## Contact
 
-### 3. Smart Donor Matching
-
-The demo checks whether registered donors have the same blood group and
-are currently available.
-
-In a future production version, matching can also consider:
-
-- Distance
-- Donor eligibility
-- Last donation date
-- Hospital requirements
-- Emergency priority
-- Donor response history
-
-### 4. Smart Donor Relay
-
-The Smart Donor Relay is a future feature that expands the search radius
-step by step.
-
-Example:
-
-1. Notify donors within 5 km
-2. If there is no response, expand to 10 km
-3. If required, expand to 25 km
-4. Notify partner blood banks and hospitals
-
-This prevents every donor from receiving unnecessary notifications at once.
-
-### 5. Emergency QR Profile
-
-A future emergency QR profile can contain limited essential information
-such as:
-
-- Emergency contact
-- Blood group
-- Allergies
-- Important medical notes
-
-Access to real medical information must require consent, authentication,
-and proper security.
-
-## Technologies Used
-
-- HTML5
-- CSS3
-- JavaScript
-- LocalStorage
-- Responsive design
-- Google Fonts
-
-## How to Run
-
-1. Download or clone this repository.
-2. Open `index.html` in a browser.
-3. Create a blood request.
-4. Register a donor.
-5. Open the dashboard section to see demo activity.
-
-For the best development experience, use Visual Studio Code with the
-Live Server extension.
-
-## Important Note
-
-This project is currently a demonstration prototype.
-
-It does not connect to real hospitals, blood banks, or real donor databases.
-It does not guarantee blood availability.
-
-A production version would require:
-
-- Secure backend APIs
-- User authentication
-- Hospital and blood-bank verification
-- Consent management
-- Encrypted medical data
-- Real-time notifications
-- Database integration
-- Medical and legal review
-- Proper donor eligibility checks
-
-## Founder
-
-M. Abinash
-
-## Project Motto
-
-Find blood. Save a life.
+Managed by **Mudda Abinash** · [abhinash1023@gmail.com](mailto:abhinash1023@gmail.com)
