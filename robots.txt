@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abhinash1023-alt.github.io/LIFELINK/sitemap.xml
